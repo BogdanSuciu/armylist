@@ -1,0 +1,10 @@
+<table class="two-d-table">
+  <tr>
+    <th ng-bind="label"></th>
+    <th ng-repeat="(key,value) in data" ng-bind="key"></th>
+  </tr>
+  <tr ng-repeat="(key,value) in data">
+    <td ng-bind="key"></td>
+    <td ng-repeat="(key,item) in value track by $index" ng-bind="item"></td>
+  </tr>
+</table>

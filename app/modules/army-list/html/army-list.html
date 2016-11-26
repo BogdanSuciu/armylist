@@ -1,0 +1,56 @@
+    <div class="container" ng-controller="armyList">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1 class="text-center">Start Creating your army</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" ng-if="codices">
+          <p>First select a codex</p>
+          <select class="form-control" ng-model="selectedCodex" ng-options="y.name for (x,y) in codices" ng-change="getForceType()"></select>
+          <div ng-if="forces">
+            <p>Now choose a force type</p>
+              <select class="form-control" ng-model="selectedForce" ng-options="force as force.name for force in forces track by force.id" ng-change="getDetachment(selectedForce)"></select>
+              <div ng-if="selectedForce">
+                <h3 ng-bind="detachment.name"></h3>
+                <h4>Restrictions:</h4>
+                <p ng-bind="detachment.restrictions"></p>
+                <h4>Benefits:</h4>
+                <p ng-bind="detachment.benefits"></p>
+                <h4>Force organisation slots</h4>
+                <div ng-if="detachment.min_troops && detachment.max_troops">
+                  <h4>Troops (min:<span ng-bind="detachment.min_troops"></span>) (max:<span ng-bind="detachment.max_troops"></span>)</h4>
+                  <button ng-click="getTroops(selectedCodex)">Add</button>
+                  <div ng-if="troops">
+                    {{troops}}
+                    <div ng-repeat="(key,value) in troopsList">
+                      <div class="row">
+                        <div class="col-xs-2">
+                          <strong>TROOPS<span ng-bind="key"></span></strong>
+                        </div>
+                        <div class="col-xs-10" ng-if="!troopsList[key].selectedOption">
+                          <troops-select ></troops-select>
+                        </div>
+                        <div class="col-xs-9" ng-if="troopsList[key].selectedOption">
+                          <div class="unit-stats">
+                            <strong>
+                              <span ng-bind="troopsList[key].selectedOption.name | uppercase"></span>
+                              - 
+                              <span ng-bind="troopsList[key].selectedOption.cost"></span>
+                              points
+                            </strong>
+                           </div>
+                        </div>
+                        <div class="col-xs-1" ng-if="troopsList[key].selectedOption">
+                          <button ng-click="resetSelection(troopsList[key])">Reset</button>
+                        </div>
+                      </div>
+                      {{models[troopsList[key].selectedOption.model_01.id]}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>

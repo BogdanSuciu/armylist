@@ -1,0 +1,24 @@
+<div class="row" ng-controller="quickReference">
+  <div class="col-xs-12">
+    <div class="row quick-menu">
+      <div class="col-xs-4 quick-menu-item {{visibleTable === 'ballistic' ? 'active' : ''}}" ng-click="visibleTable = 'ballistic'">
+        BS
+      </div>
+      <div class="col-xs-4 quick-menu-item {{visibleTable === 'melee' ? 'active' : ''}}" ng-click="visibleTable = 'melee'">
+       WS
+      </div>
+      <div class="col-xs-4 quick-menu-item {{visibleTable === 'wound' ? 'active' : ''}}" ng-click="visibleTable = 'wound'">
+       WOUND
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12" ng-if="visibleTable === 'ballistic'">
+     <one-d-table table-data="ballisticTable"></one-d-table>
+  </div>
+  <div class="col-xs-12" ng-if="visibleTable === 'melee'">
+    <two-d-table table-data="weaponSkillTable" table-label="'A\\D'"></two-d-table>
+  </div>
+  <div class="col-xs-12" ng-if="visibleTable === 'wound'">
+    <two-d-table table-data="ToWoundTable" table-label="'S\\T'"></two-d-table>
+  </div>
+</div>

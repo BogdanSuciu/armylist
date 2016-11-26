@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="assets/libs/bootstrap/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="app/modules/quick-reference/css/quick-reference.css">
+    
+    <link rel="stylesheet" href="app/directives/one-d-table/one-d-table.css">
+    <link rel="stylesheet" href="app/directives/two-d-table/two-d-table.css">
+        
+    <script src="assets/libs/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/libs/angular.min.js"></script>
+    <script src="assets/libs/ngStorage.min.js"></script>
+    <script src="assets/libs/angular-route.js"></script>
+  </head>
+
+  <body ng-app="armyApp" ng-cloak>
+    <div class="container-fluid">
+      <div ng-controller="mainNavigation">
+        <ul class="nav nav-pills" >
+          <li role="presentation" ng-repeat="(index,value) in pages" ng-class="{ active: isActive(value['routing-uri']) }">
+          <a href="#{{value['routing-uri']}}">{{value['display-name']}}</a></li>
+        </ul>
+      </div>
+      <ng-view></ng-view>
+    </div>
+    <script src="app/app-module.js"></script>
+    <script src="app/app-router.js"></script>
+    
+    <script src="app/modules/main-navigation/main-navigation-module.js"></script>
+    <script src="app/modules/main-navigation/main-navigation-controller.js"></script>
+    
+    <script src="app/modules/army-list/army-list-module.js"></script>
+    <script src="app/modules/army-list/army-list-controller.js"></script>
+    <script src="app/modules/army-list/directives/force-select.js"></script>
+    
+    <script src="app/modules/welcome/welcome-module.js"></script>
+    <script src="app/modules/welcome/welcome-controller.js"></script>
+    
+    <script src="app/modules/error-page/error-page-module.js"></script>
+    <script src="app/modules/error-page/error-page-controller.js"></script>
+    
+    <script src="app/modules/quick-reference/quick-reference-module.js"></script>
+    <script src="app/modules/quick-reference/quick-reference-controller.js"></script>
+    
+    <script src="app/directives/one-d-table/one-d-table.js"></script>
+    <script src="app/directives/two-d-table/two-d-table.js"></script>
+    
+    <script src="app/services/request-services.js"></script>
+    <script src="app/services/storage-services.js"></script>
+    <script src="app/services/data-services.js"></script>
+    
+  </body>
+
+
+</html>
