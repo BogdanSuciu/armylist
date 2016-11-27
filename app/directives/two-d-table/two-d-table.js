@@ -12,9 +12,21 @@
     restrict: 'E',
     scope: {
       label: '=tableLabel',
-      data: '=tableData'
+      data: '=tableData',
     },
-    templateUrl: 'app/directives/two-d-table/two-d-table.html'
+    templateUrl: 'app/directives/two-d-table/two-d-table.html',
+    controller: function($scope) {
+      var _this = $scope;
+      _this.selectedColumn = "";
+      _this.selectedRow = "";
+      _this.selectColumn = function(column) {
+        // TODO column selection doesn't work
+        _this.selectedCoumn = column.$index;
+      };
+      _this.selectRow = function(row) {
+        _this.selectedRow = row.$index;
+      };
+    }
   };
 });
 })();

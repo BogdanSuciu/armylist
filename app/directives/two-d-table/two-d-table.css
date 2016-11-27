@@ -1,1 +1,1 @@
-.two-d-table{width:100%;table-layout:fixed;border:1px solid #000;font-size:12px}.two-d-table th{background-color:#16a085}.two-d-table td,.two-d-table th{padding-top:10px;padding-bottom:10px;text-align:center;border:1px solid #000}
+.two-d-table{width:100%;table-layout:fixed;border:1px solid #000;font-size:12px}.two-d-table th{background-color:#16a085}.two-d-table td,.two-d-table th{padding-top:10px;padding-bottom:10px;text-align:center;border:1px solid #000}.two-d-table .selected-active .row-item{background-color:#38e4c2}.two-d-table .both-active{background-color:#e74c3c}

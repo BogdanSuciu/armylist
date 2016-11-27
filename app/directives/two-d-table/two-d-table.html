@@ -1,10 +1,10 @@
 <table class="two-d-table">
   <tr>
     <th ng-bind="label"></th>
-    <th ng-repeat="(key,value) in data" ng-bind="key"></th>
+    <th ng-repeat="(column,value) in data" ng-bind="column" ng-click="selectColumn(this)"></th>
   </tr>
-  <tr ng-repeat="(key,value) in data">
-    <td ng-bind="key"></td>
-    <td ng-repeat="(key,item) in value track by $index" ng-bind="item"></td>
+  <tr ng-repeat="(row,value) in data track by $index" ng-class="{'selected-active' : $index === selectedRow}">
+    <td ng-bind="row" ng-click="selectRow(this)" class="row-header"></td>
+    <td ng-repeat="(cell,row) in value track by $index" ng-bind="row" ng-class="{'both-active' : cell === selectedColumn}" class="row-item"></td>
   </tr>
 </table>

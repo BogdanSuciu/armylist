@@ -1,6 +1,7 @@
 /* variables */
 @table-border-green: #1abc9c;
 @table-header-green: #16a085;
+@table-selected-cell: #e74c3c;
 
 .two-d-table {
   width: 100%;
@@ -15,5 +16,11 @@
     padding-bottom: 10px;
     text-align: center;
     border: 1px solid #000;
+  }
+  .selected-active .row-item {
+    background-color: lighten(@table-header-green, 20%);
+  }
+  .both-active {
+    background-color: @table-selected-cell;
   }
 }
