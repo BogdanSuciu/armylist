@@ -5,6 +5,43 @@
         </div>
       </div>
       <div class="row">
+        <div ng-if="!armyForm.armySaved" class="col-xs-12">
+          <button ng-if="!armyForm.visible && !armyForm.name" ng-click="toggleArmyForm()" class="btn btn-default btn-block">Create Army</button>
+          <div ng-if="armyForm.visible" class="row">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <label for="army-name">Army name </label>
+              </div>
+              <div class="col-xs-12">
+                <input id="army-name" type="text" ng-model="armyForm.name" class="form-control" required>
+              </div>
+              <div class="col-xs-12">
+                <label for="army-description">Army description </label>
+              </div>
+              <div class="col-xs-12">
+                <textarea id="army-description" class="form-control" ng-model="armyForm.description"></textarea>
+              </div>
+              <div class="col-xs-12">
+                <label for="army-points-limit">Points limit </label>
+              </div>
+              <div class="col-xs-12">
+                <input id="army-points-limit" type="number" ng-model="armyForm.pointsLimit" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12">
+                <button ng-click="createArmy(armyForm)" class="btn btn-default btn-block">Save</button>
+              </div>
+            </div>          
+          </div>
+          </div>
+        </div>
+        
+        <div ng-if="armyForm.armySaved" class="col-xs-12">
+          <h3><span>Army: </span><span ng-bind="armyForm.name"></span><button class="btn btn-default pull-right" ng-click="editArmy()">Edit</button></h3>
+          <h4><span ng-bind="armyForm.description"></span></h4>
+        </div>
         <div class="col-xs-12" ng-if="codices">
           <p>First select a codex</p>
           <select class="form-control" ng-model="selectedCodex" ng-options="y.name for (x,y) in codices" ng-change="getForceType()"></select>

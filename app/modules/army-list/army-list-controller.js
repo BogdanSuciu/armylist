@@ -9,6 +9,42 @@
   "use strict";
   angular.module("armyApp.armyList").controller("armyList", function(dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
     var _this = $scope;
+    
+    _this.armyList = {};
+    
+    _this.armyForm = {};
+    _this.armyForm.visible = false;
+    _this.armyForm.name = "";
+    _this.armyForm.description = "";
+    _this.armyForm.pointsLimit = -1;
+    _this.armyForm.armySaved = false;
+    
+    _this.toggleArmyForm = function() {
+      _this.armyForm.visible = !_this.armyForm.visible;
+    };
+    
+    _this.army = function(armyForm) {
+      this.name = armyForm.name;
+      this.description = armyForm.description;
+      if(armyForm.points) {
+        this.points = armyForm.points;
+      } else {
+        this.points = -1;
+      }
+      this.forces = [];
+    };
+    
+    _this.createArmy = function(name,description,points) {
+      _this.armyList = new _this.army(name,description,points);
+      _this.armyForm.armySaved = true;
+    };
+    
+    _this.editArmy = function() {
+      _this.armyForm.visible = true;
+      _this.armyForm.armySaved = false;
+    };
+    
+    
     _this.selectedForce;
     _this.detachment;
     _this.selectedCodex;

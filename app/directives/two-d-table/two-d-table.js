@@ -21,7 +21,7 @@
       _this.selectedRow = "";
       _this.selectColumn = function(column) {
         // TODO column selection doesn't work
-        _this.selectedCoumn = column.$index;
+        _this.selectedColumn = column.$index;
       };
       _this.selectRow = function(row) {
         _this.selectedRow = row.$index;
