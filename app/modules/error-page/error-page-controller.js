@@ -7,8 +7,12 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("pageNotFound", function($scope) {
-    var _this = $scope;
+  angular.module("armyApp").controller("pageNotFound", function($scope,scopeService) {
+    if(!scopeService.shared.pageNotFound) {
+      scopeService.shared.pageNotFound = {};
+    }
+    $scope.pageNotFound = scopeService.shared.pageNotFound;
+    var _this = $scope.pageNotFound;
     _this.message = "WE ARE SORRY THE PAGE YOU ARE LOOKING FOR DOESN'T EXIST";
   });
 })();
