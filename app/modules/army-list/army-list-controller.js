@@ -7,10 +7,15 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("armyList", function(dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
-    var _this = $scope;
+  angular.module("armyApp").controller("armyList", function(scopeService, dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
+    // registering in the shared scope
+    if(!scopeService.shared.armyList) {
+      scopeService.shared.armyList = {};
+    }
+    $scope.armyList = scopeService.shared.armyList;
+    var _this = $scope.armyList;
     
-    _this.armyList = {};
+    _this.forcesList = {};
     
     _this.armyForm = {};
     _this.armyForm.visible = false;
@@ -35,7 +40,7 @@
     };
     
     _this.createArmy = function(name,description,points) {
-      _this.armyList = new _this.army(name,description,points);
+      _this.forcesList = new _this.army(name,description,points);
       _this.armyForm.armySaved = true;
     };
     
@@ -44,7 +49,7 @@
       _this.armyForm.armySaved = false;
     };
     
-    
+    // TODO refactor
     _this.selectedForce;
     _this.detachment;
     _this.selectedCodex;
@@ -53,10 +58,14 @@
     _this.troops;
     _this.troopsList = {};
     _this.models={};
+    
     // retrieving initial codex list
-    requestServices.codexList().then(function(response) {
-      _this.codices = response;
-    });
+    if(!_this.codices) {
+      requestServices.codexList().then(function(response) {
+        _this.codices = response;
+      });
+    }
+    
     _this.getForceType = function(selectedCodex) {
       // must use selectedCodex to filter different detachments
       requestServices.forceList().then(function(response) {

@@ -10,7 +10,7 @@
   angular.module("armyApp").directive('troopsSelect', function() {
   return {
     restrict: 'E',
-    template: '<select class="form-control" ng-model="troopsList[key].selectedOption" ng-options="y.name for (x,y) in troops" ng-change="getModels(troopsList[key].selectedOption)"></select>'
+    template: '<select class="form-control" ng-model="armyList.troopsList[key].selectedOption" ng-options="y.name for (x,y) in armyList.troops" ng-change="armyList.getModels(armyList.troopsList[key].selectedOption)"></select>'
   };
 });
 })();
