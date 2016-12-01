@@ -21,18 +21,14 @@
 
   <body ng-app="armyApp" ng-cloak>
     <div class="container-fluid">
-      <div ng-controller="mainNavigation">
-        <ul class="nav nav-pills" >
-          <li role="presentation" ng-repeat="(index,value) in pages" ng-class="{ active: isActive(value['routing-uri']) }">
-          <a href="#{{value['routing-uri']}}">{{value['display-name']}}</a></li>
-        </ul>
-      </div>
+      <main-navigation></main-navigation>
       <ng-view></ng-view>
     </div>
     <script src="app/app-module.js"></script>
     <script src="app/app-router.js"></script>
     
     <script src="app/modules/main-navigation/main-navigation-controller.js"></script>
+    <script src="app/modules/main-navigation/directives/main-navigation.js"></script>
     
     <script src="app/modules/army-list/army-list-controller.js"></script>
     <script src="app/modules/army-list/directives/force-select.js"></script>

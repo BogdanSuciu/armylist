@@ -1,0 +1,6 @@
+<div ng-controller="mainNavigation">
+  <ul class="nav nav-pills" >
+    <li role="presentation" ng-repeat="(index,value) in mainNavigation.pages" ng-class="{ active: mainNavigation.isActive(value['routing-uri']) }">
+    <a href="#{{value['routing-uri']}}">{{value['display-name']}}</a></li>
+  </ul>
+</div>

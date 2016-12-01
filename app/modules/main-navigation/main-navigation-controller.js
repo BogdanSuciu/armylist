@@ -8,8 +8,12 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("mainNavigation", function($scope, $location) {
-    var _this = $scope;
+  angular.module("armyApp").controller("mainNavigation", function($scope, $location, scopeService) {
+    if(!scopeService.shared.mainNavigation) {
+      scopeService.shared.mainNavigation = {};
+    }
+    $scope.mainNavigation = scopeService.shared.mainNavigation;
+    var _this = $scope.mainNavigation;
     _this.pages = [
       {
         "name": "welcome",
