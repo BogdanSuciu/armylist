@@ -8,7 +8,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp.mainNavigation").controller("mainNavigation", function($scope, $location) {
+  angular.module("armyApp").controller("mainNavigation", function($scope, $location) {
     var _this = $scope;
     _this.pages = [
       {

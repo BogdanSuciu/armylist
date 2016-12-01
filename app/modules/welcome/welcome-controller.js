@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp.landingPage").controller("welcome", function($scope, $http) {
+  angular.module("armyApp").controller("welcome", function($scope) {
     var _this = $scope;
     _this.welcome = "Welcome to my App";
   });

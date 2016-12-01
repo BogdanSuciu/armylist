@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp.pageNotFound").controller("pageNotFound", function($scope, $http) {
+  angular.module("armyApp").controller("pageNotFound", function($scope) {
     var _this = $scope;
     _this.message = "WE ARE SORRY THE PAGE YOU ARE LOOKING FOR DOESN'T EXIST";
   });

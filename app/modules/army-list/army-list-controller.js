@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp.armyList").controller("armyList", function(dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
+  angular.module("armyApp").controller("armyList", function(dataServices, requestServices, storageServices, $localStorage, $sessionStorage, $scope, $http) {
     var _this = $scope;
     
     _this.armyList = {};

@@ -7,7 +7,7 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp.armyList").directive('troopsSelect', function() {
+  angular.module("armyApp").directive('troopsSelect', function() {
   return {
     restrict: 'E',
     template: '<select class="form-control" ng-model="troopsList[key].selectedOption" ng-options="y.name for (x,y) in troops" ng-change="getModels(troopsList[key].selectedOption)"></select>'

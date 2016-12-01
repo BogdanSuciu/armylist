@@ -8,12 +8,12 @@
 (function() {
   "use strict";
   angular.module("armyApp").directive('oneDTable', function() {
-  return {
-    restrict: 'E',
-    scope: {
-      data: '=tableData'
-    },
-    templateUrl: 'app/directives/one-d-table/one-d-table.html'
-  };
-});
+    return {
+      restrict: 'E',
+      scope: {
+        data: '=tableData'
+      },
+      templateUrl: 'app/directives/one-d-table/one-d-table.html'
+    };
+  });
 })();
