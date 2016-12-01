@@ -1,24 +1,24 @@
 <div class="row" ng-controller="quickReference">
   <div class="col-xs-12">
     <div class="row quick-menu">
-      <div class="col-xs-4 quick-menu-item {{visibleTable === 'ballistic' ? 'active' : ''}}" ng-click="visibleTable = 'ballistic'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'ballistic' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'ballistic'">
         BS
       </div>
-      <div class="col-xs-4 quick-menu-item {{visibleTable === 'melee' ? 'active' : ''}}" ng-click="visibleTable = 'melee'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'melee' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'melee'">
        WS
       </div>
-      <div class="col-xs-4 quick-menu-item {{visibleTable === 'wound' ? 'active' : ''}}" ng-click="visibleTable = 'wound'">
+      <div class="col-xs-4 quick-menu-item {{quickReference.visibleTable === 'wound' ? 'active' : ''}}" ng-click="quickReference.visibleTable = 'wound'">
        WOUND
       </div>
     </div>
   </div>
-  <div class="col-xs-12" ng-if="visibleTable === 'ballistic'">
-     <one-d-table table-data="ballisticTable"></one-d-table>
+  <div class="col-xs-12" ng-if="quickReference.visibleTable === 'ballistic'">
+     <one-d-table table-data="quickReference.ballisticTable"></one-d-table>
   </div>
-  <div class="col-xs-12" ng-if="visibleTable === 'melee'">
-    <two-d-table table-data="weaponSkillTable" table-label="'A\\D'" table-id="'meleeTable'"></two-d-table>
+  <div class="col-xs-12" ng-if="quickReference.visibleTable === 'melee'">
+    <two-d-table table-data="quickReference.weaponSkillTable" table-label="'A\\D'" table-id="'meleeTable'"></two-d-table>
   </div>
-  <div class="col-xs-12" ng-if="visibleTable === 'wound'">
-    <two-d-table table-data="ToWoundTable" table-label="'S\\T'" table-id="'woundTable'"></two-d-table>
+  <div class="col-xs-12" ng-if="quickReference.visibleTable === 'wound'">
+    <two-d-table table-data="quickReference.ToWoundTable" table-label="'S\\T'" table-id="'woundTable'"></two-d-table>
   </div>
 </div>
