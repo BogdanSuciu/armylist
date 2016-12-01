@@ -7,8 +7,12 @@
  */
 (function() {
   "use strict";
-  angular.module("armyApp").controller("welcome", function($scope) {
-    var _this = $scope;
-    _this.welcome = "Welcome to my App";
+  angular.module("armyApp").controller("welcome", function($scope, scopeService) {
+    if(!scopeService.shared.welcome) {
+      scopeService.shared.welcome = {};
+    }
+    $scope.welcome = scopeService.shared.welcome;
+    var _this = $scope.welcome;
+    _this.message = "Welcome to my App";
   });
 })();
