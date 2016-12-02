@@ -11,6 +11,8 @@
     
     <link rel="stylesheet" href="app/directives/one-d-table/one-d-table.css">
     <link rel="stylesheet" href="app/directives/two-d-table/two-d-table.css">
+    
+    <link rel="stylesheet" href="app/modules/main-navigation/directives/main-navigation.css">
         
     <script src="assets/libs/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/bootstrap.min.js"></script>
@@ -20,8 +22,8 @@
   </head>
 
   <body ng-app="armyApp" ng-cloak>
+    <main-navigation></main-navigation>
     <div class="container-fluid">
-      <main-navigation></main-navigation>
       <ng-view></ng-view>
     </div>
     <script src="app/app-module.js"></script>
