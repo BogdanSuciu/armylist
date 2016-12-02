@@ -13,9 +13,13 @@
       scopeService.shared.armyList = {};
     }
     $scope.armyList = scopeService.shared.armyList;
+    $scope.modal = scopeService.shared.modal;
+    
     var _this = $scope.armyList;
+    var _modal = $scope.modal;
     
     _this.forcesList = {};
+    _this.codices = {};
     
     _this.armyForm = {};
     _this.armyForm.visible = false;
@@ -53,22 +57,28 @@
     _this.addForce = function() {
       var force = {};
       force.selectedCodex = "";
-      _this.forceList.forces.push(force);
+      force.codices = {};
+      _this.forcesList.forces.push(force);
       
-      // retrieving condices
-      _this.retrieveCodices();
+      _modal.template = "app/modules/army-list/html/army-list-modal.html";
+      _modal.data = force;
+      _modal.showModal();
       
+      if(!_this.codices.length) {
+        _this.retrieveCodices().then(function(response) {
+          _this.codices = response;
+          force.codices = response
+        });
+      } else {
+        force.codices = _this.codices;
+      }
     }
     
     // retrieving initial codex list
     _this.retrieveCodices = function() {
-      if(!_this.codices) {
-        return requestServices.codexList().then(function(response) {
-          _this.codices = response;
-        });
-      } else {
-        return _this.codices;
-      }
+      return requestServices.codexList().then(function(response) {
+        return response;
+      });
     }
     
     // TODO refactor
