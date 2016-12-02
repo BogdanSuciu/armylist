@@ -31,16 +31,17 @@
     _this.army = function(armyForm) {
       this.name = armyForm.name;
       this.description = armyForm.description;
-      if(armyForm.points) {
-        this.points = armyForm.points;
+      if(armyForm.pointsLimit) {
+        this.pointsLimit = armyForm.pointsLimit;
       } else {
-        this.points = -1;
+        this.pointsLimit = -1;
       }
+      this.points = 0;
       this.forces = [];
     };
     
-    _this.createArmy = function(name,description,points) {
-      _this.forcesList = new _this.army(name,description,points);
+    _this.createArmy = function(armyForm) {
+      _this.forcesList = new _this.army(armyForm);
       _this.armyForm.armySaved = true;
     };
     
