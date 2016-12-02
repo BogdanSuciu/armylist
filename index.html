@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="assets/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="app/styles/styles.css">
     
     <link rel="stylesheet" href="app/modules/quick-reference/css/quick-reference.css">
     
     <link rel="stylesheet" href="app/directives/one-d-table/one-d-table.css">
     <link rel="stylesheet" href="app/directives/two-d-table/two-d-table.css">
+    <link rel="stylesheet" href="app/directives/modal/modal.css">
     
     <link rel="stylesheet" href="app/modules/main-navigation/directives/main-navigation.css">
         
@@ -25,6 +27,7 @@
     <main-navigation></main-navigation>
     <div class="container-fluid">
       <ng-view></ng-view>
+      <armylist-modal></armylist-modal>
     </div>
     <script src="app/app-module.js"></script>
     <script src="app/app-router.js"></script>
@@ -43,6 +46,7 @@
     
     <script src="app/directives/one-d-table/one-d-table.js"></script>
     <script src="app/directives/two-d-table/two-d-table.js"></script>
+    <script src="app/directives/modal/modal.js"></script>
     
     <script src="app/services/request-services.js"></script>
     <script src="app/services/storage-services.js"></script>
