@@ -58,6 +58,9 @@
           </h4>
         </div>
         
+        <div class="col-xs-12" ng-if="armyList.armyForm.armySaved">
+          <button ng-click="addForce()" class="btn btn-default btn-block">Add Force</button>
+        </div>
         
         <div class="col-xs-12" ng-if="armyList.codices">
           <p>First select a codex</p>

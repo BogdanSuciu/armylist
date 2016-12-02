@@ -50,6 +50,27 @@
       _this.armyForm.armySaved = false;
     };
     
+    _this.addForce = function() {
+      var force = {};
+      force.selectedCodex = "";
+      _this.forceList.forces.push(force);
+      
+      // retrieving condices
+      _this.retrieveCodices();
+      
+    }
+    
+    // retrieving initial codex list
+    _this.retrieveCodices = function() {
+      if(!_this.codices) {
+        return requestServices.codexList().then(function(response) {
+          _this.codices = response;
+        });
+      } else {
+        return _this.codices;
+      }
+    }
+    
     // TODO refactor
     _this.selectedForce;
     _this.detachment;
@@ -59,13 +80,6 @@
     _this.troops;
     _this.troopsList = {};
     _this.models={};
-    
-    // retrieving initial codex list
-    if(!_this.codices) {
-      requestServices.codexList().then(function(response) {
-        _this.codices = response;
-      });
-    }
     
     _this.getForceType = function(selectedCodex) {
       // must use selectedCodex to filter different detachments
